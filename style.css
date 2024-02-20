@@ -310,7 +310,9 @@ body{
 
 .footer p{
   position: absolute;
-  right: 2vmax;
-  padding: 50px 0px 0px 0px;
+  right: -1vmax;
+  padding: 40px 0px 0px 10px;
   font-size: 0.6vmax;
+  letter-spacing: 1px;
+  width: 20vmax;
 }
