@@ -42,7 +42,6 @@ body{
   color: var(--clr-white);
   background-image: linear-gradient(to bottom right, var(--clr-darkblue), var(--clr-darkpurple));
   font-size: 1vmax;
-  height: 5vmax; 
 }
 
 .footer h1{
@@ -78,8 +77,8 @@ body{
 
 /* Overall Page Design */
 .card{
-    width: 102vw;
-    height: 105vh;
+    width: 100vw;
+    height: 100vh;
     color: var(--clr-light); /*Default Font colors*/
     position: sticky;
     top: 0;
@@ -97,7 +96,7 @@ body{
 
 /* Title Heading for Each Section */
 .card-title h1{
-  font-size: 4vmax;
+  font-size: 2rem;
   padding: 2vmax;
 }
 
@@ -118,15 +117,36 @@ body{
 /* Video slider size */
 .slider-wrapper{
   position: relative;
-  max-width: 55vmax;
+  max-width: 55rem;
+  width: 100%;
   margin: 0 auto;
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
+  .slider-wrapper {
+    width: 90%;
+  }
+  .slider {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 480px) {
+  .slider-wrapper {
+    width: 100%;
+  }
+  .slider {
+    aspect-ratio: 1 / 1;
+  }
 }
 
 /* Video slider look */
 .slider{
   display: flex;
   aspect-ratio: 16 / 9;
-  overflow-x: hidden; 
+  overflow: hidden;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.5);
@@ -137,6 +157,8 @@ body{
 .slider video{
   flex: 1 0 100%;
   scroll-snap-align: start;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   transition: all 0.5s ease
 }
@@ -152,7 +174,7 @@ body{
   height: 20px;
   width: 20px;
   border-radius: 50%;
-  border: solid var(--clr-grey) 3px;
+  border: solid rgb(30, 0, 255) 3px;
   cursor: pointer;
   transition: all 0.30s ease;
   margin: 5px
@@ -163,13 +185,15 @@ body{
 
 /*Video position*/
 #vid1:checked ~ .v1{
-  margin-left: 0;
-  
+  margin-left: -105%;
 }
 
-#vid1:checked ~ .v2{
-  margin-left: -100%;
+#vid2:checked ~ .v2{
+  margin-left: -0.1%;
+}
 
+#pic1:checked ~ #p1{
+  margin-left: -0.1%;
 }
 
 /* Adapted Code ends here */
@@ -186,9 +210,10 @@ body{
 .experiences{
   z-index: 1;
   top: 8.5vmax;
-  left: 1vmax;
-  position: absolute;
+  position: relative;
   display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Individual Boxes in Skills/Experiences*/
@@ -225,30 +250,29 @@ body{
   background-color: var(--clr-blackopacity);
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  padding: 2vmax;
-  padding-left: 4.95vmax;
-  padding-right: 5.2vmax;
+  padding-left: 7.4rem;
+  padding-right: 7.4rem;
   border-style: solid;
   border-bottom: 0;
 }
 
 /* Background Sub-Title Design */
 .background h2{
-  padding-bottom: 0.5vmax;
+  padding-bottom: 0.5rem;
 }
 
 /* Background style design*/
 .background{
+  position: relative;
   color: var(--clr-grey);
-  font-size: 1.28vmax;
+  font-size: 1rem;
   background-color: var(--clr-light);
-  padding: 0.92vmax;
+  padding: 0.85rem;
   border-top: 0 ;  
   border-style: solid;
   border-color: var(--clr-grey);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  
 }
 
 /* Background content design*/
@@ -258,46 +282,48 @@ body{
   border-color: var(--clr-grey);
 }
 
-.about-container, .about-content, .about-profile{
-  border: var(--clr-darkpurple) solid;
-
+.about-container{
+  border-top: var(--clr-darkpurple) solid;
+  border-bottom: var(--clr-darkpurple) solid;
 }
 
 /* The box on the left */
 .about-profile{
+  padding: 1rem;
   text-align: center;
-  width: 60%; 
-  font-size: 1vmax;
+  font-size: 0.7rem;
+  border-bottom: var(--clr-darkpurple) solid;
 }
 
 /* The image in the box */
 .about-profile img{
-  width: 9vmax;
-  height: 10vmax; 
+  width: 9rem;
+  height: 10rem; 
   position: inherit;
-  padding-top: 1vmax;
+  padding-top: 1rem;
   border-radius: 100px;
 }
 
 /* The box on the right */
 .about-container{
   background-color: var(--clr-blackopacity);
+  justify-content: center;
   display: inline-flex;
-  width: 65vmax;
-  font-size: 1.2vmax;
+  flex-wrap: wrap;
+  font-size: 1rem;
 }
 
 /* The content in the box */
 .about-content{
-  padding: 1vmax;
+  padding: 1rem;
+  width: 50%;
   text-align: justify;
-  width: inherit;
-  height: inherit;
 }
 
 .about-content h2{
+  margin-top: 1rem;
   position: relative;
-  padding-bottom: 1vmax;
+  padding-bottom: 1rem;
 }
 
 #aboutSection h1{
@@ -308,11 +334,41 @@ body{
   margin-top: 10px;
 }
 
+
 .footer p{
   position: absolute;
-  right: -1vmax;
+  right: -1rem;
   padding: 40px 0px 0px 10px;
-  font-size: 0.6vmax;
-  letter-spacing: 1px;
-  width: 20vmax;
+  font-size: 0.6rem;
+  letter-spacing: 1rem;
+  width: 20rem;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .about-content {
+    width: 75%;
+  }
+
+  .footer p {
+    right: 0;
+    width: 18rem;
+    letter-spacing: 0.5rem;
+  }
+}
+
+/* Phones */
+@media (max-width: 768px) {
+  .about-content {
+    width: 100%;
+  }
+
+  .footer p {
+    position: relative;
+    padding: 20px 0 0 0;
+    font-size: 0.5rem;
+    letter-spacing: 0.3rem;
+    width: auto;
+    text-align: center;
+  }
 }
